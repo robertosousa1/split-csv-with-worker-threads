@@ -2,9 +2,9 @@ const fs = require('fs')
 const worker_threads = require('./worker_threads')
 
 async function writeToFile (csv, numberThreads) {
-  for (let i = 0; i <= numberThreads; i++) {
-    const positionsPerThread = Math.ceil(csv.length / numberThreads)
+  const positionsPerThread = Math.ceil(csv.length / numberThreads)
 
+  for (let i = 0; i < numberThreads; i++) {
     const csvFraction = csv.splice(0, positionsPerThread)
 
     await worker_threads(
