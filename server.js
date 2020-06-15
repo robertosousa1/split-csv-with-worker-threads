@@ -12,7 +12,7 @@ process.send({ file });
 
 
 process.on('message', async (message) => {  
-  await fs.writeFileSync(resolve(__dirname, 'output', 'DONE.txt'), 'Fim!');
+  await fs.writeFileSync(resolve(__dirname, 'output', 'DONE.txt'), '');
 
   console.log('Master process completed.')
 });
